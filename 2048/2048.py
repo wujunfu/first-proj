@@ -113,12 +113,13 @@ class GameField(object):
         help_string2 = '     (R)Restart (Q)Exit'
         gameover_string = '           GAME OVER'
         win_string = '          YOU WIN!'
+
         def cast(string):
             screen.addstr(string + '\n')
 
-        #绘制水平分割线
+        # 绘制水平分割线
         def draw_hor_separator():
-            line = '+' + ('+------' * self.width + '+')[1:]
+            line = '+------' * self.width + '+'
             separator = defaultdict(lambda: line)
             if not hasattr(draw_hor_separator, "counter"):
                 draw_hor_separator.counter = 0
@@ -130,7 +131,7 @@ class GameField(object):
 
         screen.clear()
 
-        cast('SCORE: ' + str(self.high_score))
+        cast('SCORE: ' + str(self.now_score))
         if 0 != self.high_score:
             cast('HIGHSCORE: ' + str(self.high_score))
 
